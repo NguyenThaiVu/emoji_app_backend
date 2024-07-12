@@ -1,0 +1,9 @@
+comet_ml==3.43.2
+Flask==3.0.3
+scikit-learn==1.4.2
+joblib==1.4.2
+PyYAML==6.0.1
+Requests==2.32.3
+streamlit==1.32.0
+gunicorn==22.0.0
+xgboost==2.1.0

@@ -1,0 +1,18 @@
+model:
+    glove:
+        path_file: "models/glove.6B.50d.txt"
+        current_version: 1.0.0
+    label_encoder:
+        path_file: "models/label_encoder.joblib"
+        current_version: 2.0.0
+    xgb_model:
+        path_file: "models/xgboost_model.joblib"
+        current_version: 2.0.0
+
+prediction:
+    top_k: 10
+
+programming:
+    comet_api_key: j3DrC3ChXkR42WfPCUh5EIkye
+    comet_project_name: emoji-search-app
+    comet_workspace: thaiv7

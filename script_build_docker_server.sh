@@ -1,0 +1,1 @@
+sudo docker build . -f Dockerfile.flask_server -t flask_server
