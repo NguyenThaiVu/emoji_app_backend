@@ -78,7 +78,6 @@ def predict():
     logger.info(f'Input text: {input_text}')
 
     # Run inference 
-    input_text = str(input_text)
     list_predcited_emotion = get_top_k_prediction(xgb_model, input_text, top_k, glove_embed, label_encoder)
     logger.info(f'Predicted emotions: {list_predcited_emotion}')
 
