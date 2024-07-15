@@ -1,2 +1,5 @@
 models/glove.6B.50d.txt
 models/xgboost_model.joblib
+
+__pycache__
+utils/__pycache__

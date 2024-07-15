@@ -3,6 +3,7 @@ import joblib
 from flask import Flask, request, jsonify
 import os
 from comet_ml import API
+from flask_cors import CORS
 from utils.utils_model import *
 
 app = Flask(__name__)
@@ -79,3 +80,4 @@ def predict():
 if __name__ == '__main__':
     # app.run(port=5000, debug=True)
     app.run(debug=True)
+    CORS(app, support_credentials=True)
