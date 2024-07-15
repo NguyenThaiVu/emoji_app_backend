@@ -4,9 +4,16 @@ from flask import Flask, request, jsonify
 import os
 from comet_ml import API
 from flask_cors import CORS
+from flask import make_response
+import logging
+
 from utils.utils_model import *
 
 app = Flask(__name__)
+CORS(app, support_credentials=True)
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 
 # The configuration
@@ -67,17 +74,27 @@ def predict():
 
     # Get RAW input data
     data = request.get_json()
-    input_text = data['input_text']
+    input_text = data.get("query")
+    logger.info(f'Input text: {input_text}')
 
     # Run inference 
     input_text = str(input_text)
     list_predcited_emotion = get_top_k_prediction(xgb_model, input_text, top_k, glove_embed, label_encoder)
+    logger.info(f'Predicted emotions: {list_predcited_emotion}')
 
     output_prediction = {'list_predcited_emotion': list_predcited_emotion}
-    return jsonify(output_prediction)
+
+    response = make_response(jsonify(output_prediction))
+    response.headers['Cache-Control'] = 'no-store'
+
+    return response
+
+
+@app.route('/server_data', methods=['GET'])
+def get_data():
+    return jsonify({'message': 'Hello from Flask!'})
 
 
 if __name__ == '__main__':
     # app.run(port=5000, debug=True)
     app.run(debug=True)
-    CORS(app, support_credentials=True)
