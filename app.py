@@ -7,7 +7,7 @@ from flask_cors import CORS
 from flask import make_response
 import logging
 
-from utils.utils_model import *
+from utils import *
 
 app = Flask(__name__)
 CORS(app, support_credentials=True)
