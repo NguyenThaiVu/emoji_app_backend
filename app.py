@@ -77,6 +77,10 @@ def predict():
     input_text = data.get("query")
     logger.info(f'Input text: {input_text}')
 
+    language = identify_language(input_text)
+    if language != 'en':
+        input_text = vietnamese_to_english(input_text)
+
     # Run inference 
     list_predcited_emotion = get_top_k_prediction(xgb_model, input_text, top_k, glove_embed, label_encoder)
     logger.info(f'Predicted emotions: {list_predcited_emotion}')

@@ -1,4 +1,7 @@
 import numpy as np
+from googletrans import Translator
+from langdetect import detect, DetectorFactory
+DetectorFactory.seed = 0  # Ensure consistent results by setting the seed
 
 def convert_unicode_2_emoji(unicode_str):
     """
@@ -63,3 +66,27 @@ def get_top_k_prediction(xgb_model, input_name, top_k, embedding, label_encoder)
         list_predcited_emotion.append(y_pred_emotion)
     
     return list_predcited_emotion
+
+
+
+def identify_language(text):
+    """
+    This function take input text and return the laguage
+    """
+    try:
+        language = detect(text)
+        return language
+    except:
+        return 'en'  # default language is English
+    
+
+
+def vietnamese_to_english(vietnamese_text):
+    """
+    This function take input as vietnamese text and return the translated english
+    """
+
+    translator = Translator()
+    translation = translator.translate(vietnamese_text, src='vi', dest='en')
+    return translation.text
+

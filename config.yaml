@@ -4,10 +4,10 @@ model:
         current_version: 1.0.0
     label_encoder:
         path_file: "models/label_encoder.joblib"
-        current_version: 2.0.0
+        current_version: 3.0.0
     xgb_model:
         path_file: "models/xgboost_model.joblib"
-        current_version: 2.0.0
+        current_version: 3.0.0
 
 prediction:
     top_k: 10

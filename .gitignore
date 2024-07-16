@@ -3,3 +3,4 @@ models/xgboost_model.joblib
 
 __pycache__
 utils/__pycache__
+test.ipynb
