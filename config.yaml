@@ -3,10 +3,10 @@ model:
         path_file: "models/glove.6B.50d.txt"
         current_version: 1.0.0
     label_encoder:
-        path_file: "models/label_encoder.joblib"
+        path_file: "models/label_encoder_3.joblib"
         current_version: 3.0.0
     xgb_model:
-        path_file: "models/xgboost_model.joblib"
+        path_file: "models/xgboost_model_3.joblib"
         current_version: 3.0.0
 
 prediction:
